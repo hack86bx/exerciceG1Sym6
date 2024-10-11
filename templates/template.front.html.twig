@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+ {% block stylesheets %}
+{{ parent() }}
+ {% endblock %}
+
+{% block javascripts %}
+<!-- JS Plugins -->
+<script src="../datas/logbook-bootstrap-main/theme/plugins/jQuery/jquery.min.js"></script>
+<script src="../datas/logbook-bootstrap-main/theme/plugins/bootstrap/bootstrap.min.js" async></script>
+<script src="../datas/logbook-bootstrap-main/theme/plugins/slick/slick.min.js"></script>
+
+<!-- Main Script -->
+<script src="js/script.js"></script>
+{% endblock %}
+
+{% block content %}
+   {% block nav %}
+      {% include 'main/_menu.html.twig' %}
+   {% endblock %}
+{% endblock %}
+

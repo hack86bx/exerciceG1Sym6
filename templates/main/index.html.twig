@@ -1,0 +1,15 @@
+{% extends 'template.front.html.twig' %}
+
+{% block title %}{{parent()}}{% endblock %}
+
+
+{% block body %}
+    {% block nav %}
+        {{ parent() }}
+    {% endblock %}
+
+<div class="example-wrapper">
+    <h1> {{ title }} </h1>
+    <p>{{ homepage_text }}</p>
+</div>
+{% endblock %}
