@@ -6,6 +6,9 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 # On va hacher les mots de passe
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+
+use Faker\Factory; as Faker;
+
 # on va récupérer notre entité User
 use App\Entity\User;
 
@@ -54,6 +57,23 @@ class AppFixtures extends Fixture
             $user->setUserRealName('The Redac '.$i.' !');
             # Utilisation du $manager pour mettre le
             # User en mémoire
+            $manager->persist($user);
+        }
+        $faker = Faker::create(locale:'fr_FR');
+
+        $hasard = mt_rand(20,40);
+        for($i = 1; $i <= $hasard; $i++){
+            $user = new User();	
+            $username = $faker->numerify(string('user-####'));
+            $user->setUsername($username);	
+            $user->setUserMail($mail);
+            $user->setRoles(['ROLE_USER']);
+            $pwdHash = $this->passwordHasher->hashPassword($user, $username);
+            $user->setPassword($pwdHash);
+            $randActive = mt_rand(0,2);
+            $user->setUserActive($randActive);
+            $realName = $faker->name();
+            $user->setUserRealName($realName);
             $manager->persist($user);
         }
 
