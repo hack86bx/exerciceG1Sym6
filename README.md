@@ -12,3 +12,4 @@ Vouz devez pouvoir vous connecter avec un `User` (avec mot de passe crypté) au 
 Créez une administration en back-end,
 
 Mais surtout un site (+-) fonctionnel en front-end
+#exerciceG1Sym6-main
